@@ -51,8 +51,9 @@
 
 	.column-element {
 		margin: 0px;
-		padding: 0px;
-		width: 800px;
+		padding: 0 20px;
+		width: 100%;
+		max-width: 800px;
 	}
 
 	figure {
@@ -68,7 +69,43 @@
 		border-color: white;
 		border-radius: 5px;
 		display: block;
-		width: 760px;
+		width: 100%;
+	}
+
+	.video-wrapper {
+		position: relative;
+		padding-bottom: 56.25%;
+		height: 0;
+		overflow: hidden;
+		border: 3px solid white;
+		border-radius: 4px;
+		margin-bottom: 30px;
+	}
+	.video-wrapper iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border: none;
+	}
+
+	@media (max-width: 600px) {
+		body {
+			font-size: 18px;
+		}
+		h3 {
+			font-size: 30px;
+		}
+		h4 {
+			font-size: 20px;
+		}
+		.version-tag {
+			font-size: 22px;
+		}
+		.download-box {
+			padding: 16px 20px;
+		}
 	}
 
 	a {
@@ -172,7 +209,7 @@
 		<img src="images/Vela-Logo.png" style="max-width: 600px; width: 100%;">
 	</figure>
 	<figure>
-		<img src="images/by-MOONU-logo.png" style="width: 300px;">
+		<img src="images/by-MOONU-logo.png" style="width: 300px; max-width: 100%;">
 	</figure>
 	<p style="font-size: 28px; text-align: center; margin: 0; opacity: 0.85;">• Beta Release •</p>
 </div>
@@ -181,11 +218,13 @@
 	<hr>
 
 	<figure style="margin-bottom: 30px;">
-		<img src="images/Screenshot Beta 2.png" style="display:block; width:800px; border: 3px solid white; border-radius: 4px; margin-bottom: 30px;">
+		<img src="images/Screenshot Beta 2.png" style="display:block; width:100%; border: 3px solid white; border-radius: 4px; margin-bottom: 30px;">
 	</figure>
 
-	<figure style="margin-bottom: 30px;">
-		<iframe width="800" height="450" src="https://www.youtube.com/embed/2-DOd8BHWDU?si=lqb73A6Uku1J0ExZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block; border: 3px solid white; border-radius: 4px;"></iframe>
+	<figure style="margin-bottom: 0px;">
+		<div class="video-wrapper">
+			<iframe src="https://www.youtube.com/embed/2-DOd8BHWDU?si=lqb73A6Uku1J0ExZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		</div>
 	</figure>
 
 	<h3>Beta Downloads</h3>
@@ -202,6 +241,7 @@
 			<a class="download-button" href="https://github.com/simonpuravida333/Vela-Beta-Releases/releases/download/Beta-2-May-16th-2026/Vela.app.zip">Mac</a>
 			<a class="download-button" href="https://github.com/simonpuravida333/Vela-Beta-Releases/releases/download/Beta-2-May-16th-2026/Vela.zip">Win</a>
 		</div>
+		<p class="platform-note" style="margin-top: 10px; color: rgba(255, 200, 150, 0.85);">⚠️ Mac: Vela may get blocked by Apple Gatekeeper due to being an unsigned app.</p>
 		<div class="version-tag">VELA Beta 2 | May 16th 2026</div>
 		<!--<p class="platform-note">Beta 2 | May 16th 2026</p>-->
 		<ul>

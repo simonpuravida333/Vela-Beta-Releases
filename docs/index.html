@@ -49,6 +49,146 @@
 		z-index: 1000;
 	}
 
+	.gallery-img {
+		cursor: pointer;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.gallery-img:hover {
+		transform: scale(1.05);
+		box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important;
+	}
+
+	.modal {
+		display: none;
+		position: fixed;
+		z-index: 2000;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.9);
+		align-items: center;
+		justify-content: center;
+	}
+
+	.modal.active {
+		display: flex;
+	}
+
+	.modal-content {
+		position: relative;
+		max-width: 90vw;
+		max-height: 90vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.modal img {
+		max-width: 100%;
+		max-height: 90vh;
+		object-fit: contain;
+	}
+
+	.modal-close {
+		position: absolute;
+		top: 20px;
+		right: 40px;
+		color: white;
+		font-size: 40px;
+		font-weight: bold;
+		cursor: pointer;
+		z-index: 2001;
+	}
+
+	.modal-close:hover {
+		color: #ccc;
+	}
+
+	.modal-arrow {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		color: white;
+		font-size: 50px;
+		font-weight: bold;
+		cursor: pointer;
+		padding: 10px 20px;
+		user-select: none;
+		transition: color 0.2s ease;
+		z-index: 2001;
+	}
+
+	.modal-arrow:hover {
+		color: #ccc;
+	}
+
+	.modal-arrow.left {
+		left: 20px;
+	}
+
+	.modal-arrow.right {
+		right: 20px;
+	}
+
+	.clickable-screenshot {
+		cursor: pointer;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.clickable-screenshot:hover {
+		transform: scale(1.02);
+		box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
+	}
+
+	.screenshot-modal {
+		display: none;
+		position: fixed;
+		z-index: 2000;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.9);
+		align-items: center;
+		justify-content: center;
+		overflow: auto;
+	}
+
+	.screenshot-modal.active {
+		display: flex;
+	}
+
+	.screenshot-modal-content {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 20px;
+	}
+
+	.screenshot-modal img {
+		max-width: 90vw;
+		max-height: 90vh;
+		object-fit: contain;
+	}
+
+	.screenshot-modal-close {
+		position: absolute;
+		top: 20px;
+		right: 40px;
+		color: white;
+		font-size: 40px;
+		font-weight: bold;
+		cursor: pointer;
+		z-index: 2001;
+	}
+
+	.screenshot-modal-close:hover {
+		color: #ccc;
+	}
+
 	.column-element {
 		margin: 0px;
 		padding: 0 20px;
@@ -216,14 +356,24 @@
 
 <div class="column-element">
 	<hr>
-
+	<!--
 	<figure style="margin-bottom: 30px;">
 		<img src="images/Screenshot Beta 2.png" style="display:block; width:100%; border: 3px solid white; border-radius: 4px; margin-bottom: 30px;">
+	</figure>
+	-->
+	<figure style="margin-bottom: 30px;">
+		<img class="clickable-screenshot" src="images/Screenshot Beta 3c.png" style="display:block; width:100%; border: 3px solid white; border-radius: 4px; margin-bottom: 30px;">
+	</figure>
+	<figure style="margin-bottom: 30px;">
+		<img class="clickable-screenshot" src="images/Screenshot Beta 3.png" style="display:block; width:100%; border: 3px solid white; border-radius: 4px; margin-bottom: 30px;">
+	</figure>
+	<figure style="margin-bottom: 30px;">
+		<img class="clickable-screenshot" src="images/Screenshot Beta 3b.png" style="display:block; width:100%; border: 3px solid white; border-radius: 4px; margin-bottom: 30px;">
 	</figure>
 
 	<figure style="margin-bottom: 0px;">
 		<div class="video-wrapper">
-			<iframe src="https://www.youtube.com/embed/2-DOd8BHWDU?si=lqb73A6Uku1J0ExZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			<iframe src="https://www.youtube.com/embed/QLtV-JvQdXE?si=X-1jFyzdAvK4xnfB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 		</div>
 	</figure>
 
@@ -231,32 +381,43 @@
 
 	<p>
 		First public beta - expect rough edges.
-		<br>Very limited functional scope - focus is on writing experience.
+		<br>Limited functional scope - focus is on writing experience.
 		<br> <span style="color: rgb(255, 220, 124);">Just unzip the folder and you're good to go.</span>
 		<br> <span style="color: rgb(255, 193, 224);">In Vela, <strong>hold 'H' (Help)</strong> for guidance.</span>
 	</p>
 
 	<div class="download-box">
-		<!--
+		
 		<div class="download-buttons">
-			<a class="download-button" href="https://github.com/simonpuravida333/Vela-Beta-Releases/releases/download/Beta-2-May-16th-2026/Vela.app.zip">Mac</a>
-			<a class="download-button" href="https://github.com/simonpuravida333/Vela-Beta-Releases/releases/download/Beta-2-May-16th-2026/Vela.zip">Win</a>
+			<!--<a class="download-button" href="https://github.com/simonpuravida333/Vela-Beta-Releases/releases/download/Beta-2-May-16th-2026/Vela.app.zip">Mac</a>-->
+			<a class="download-button" href="https://github.com/simonpuravida333/Vela-Beta-Releases/releases/download/Beta-2-May-16th-2026/Vela.zip">Windows 10 / 11</a>
 		</div>
-		-->
-		<p class="platform-note" style="margin-top: 10px; color: rgba(255, 200, 150, 0.85);">⚠️ Beta 3 download coming up early July 2026.</p>
-		<div class="version-tag">VELA Beta 2 | May 16th 2026</div>
+		
+		<p class="platform-note" style="margin-top: 10px; color: rgba(255, 200, 150, 0.85);">⚠️ Mac and Linux will be supported later in the early access stage.</p>
+
+		<div class="version-tag">VELA Beta 3 | Aug 11th 2026</div>
 		<!--<p class="platform-note">Beta 2 | May 16th 2026</p>-->
 		<ul>
-			<li>Added Pomodore clock.</li>
-			<li>Fixed missing world redraw on window resize.</li>
-			<li>Fixed incorrect text area background color at night.</li>
-			<li>... and many more improvements.</li>
+			<li>New summer theme.</li>
+			<li>Better and more snappy interactions.</li>
+			<li>Many graphics, runtime and stability improvements.</li>
+			<li>New Asian scripts support with IME interaction and word recognition: Japanese, Simplified Chinese, Traditional Chinese (Taiwanese), Cantonese (Hong Kong), Korean, Thai:</li>
 		</ul>
+
+		<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin: 24px 0;">
+			<img class="gallery-img" src="images/JP-cropped.png" alt="Japanese script rendering" data-language="Japanese" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+			<img class="gallery-img" src="images/SC-cropped.png" alt="Simplified Chinese script rendering" data-language="Simplified Chinese" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+			<img class="gallery-img" src="images/TC-cropped.png" alt="Traditional Chinese script rendering" data-language="Traditional Chinese (Taiwanese)" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+			<img class="gallery-img" src="images/HK-cropped.png" alt="Cantonese script rendering" data-language="Cantonese (Hong Kong)" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+			<img class="gallery-img" src="images/KO-cropped.png" alt="Korean script rendering" data-language="Korean" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+			<img class="gallery-img" src="images/Thai-cropped.png" alt="Thai script rendering" data-language="Thai" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+		</div>
+
 	</div>
 
 	<hr>
 
-	<h3>Send us feedback, ideas, reports...</h3>
+	<h3>Send us feedback and ideas:</h3>
 	Please fill in <a href="https://tally.so/r/aQrJYB" target="_blank" rel="noopener" style="color: white; font-weight: 700; text-decoration: underline; text-underline-offset: 3px;">our short survey</a> (2 min) to help us shape Vela.
 	<br>Join us on our <a href="https://discord.gg/8EwfgNMMGk" target="_blank" rel="noopener"><img src="images/Discord-Logo-White.svg" alt="Join the Vela Discord Server" style="height: 20px; vertical-align: middle;"></a> and become part of the journey!
 	
@@ -298,6 +459,120 @@
 	</p>
 
 </div>
+
+<div id="imageModal" class="modal">
+	<div class="modal-content">
+		<span class="modal-close">&times;</span>
+		<span class="modal-arrow left">&lt;</span>
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<p id="modalLanguageLabel" style="color: white; margin: 0 0 12px 0; font-size: 20px;"></p>
+			<img id="modalImage" src="" alt="">
+		</div>
+		<span class="modal-arrow right">&gt;</span>
+	</div>
+</div>
+
+<div id="screenshotModal" class="screenshot-modal">
+	<div class="screenshot-modal-content">
+		<span class="screenshot-modal-close">&times;</span>
+		<img id="screenshotImage" src="" alt="">
+	</div>
+</div>
+
+<script>
+	const modal = document.getElementById('imageModal');
+	const modalImage = document.getElementById('modalImage');
+	const modalLanguageLabel = document.getElementById('modalLanguageLabel');
+	const modalClose = document.querySelector('.modal-close');
+	const galleryImages = document.querySelectorAll('.gallery-img');
+	const leftArrow = document.querySelector('.modal-arrow.left');
+	const rightArrow = document.querySelector('.modal-arrow.right');
+	
+	let currentImageIndex = 0;
+	const imageArray = Array.from(galleryImages).map(img => ({
+		src: img.src,
+		alt: img.alt,
+		language: img.getAttribute('data-language')
+	}));
+
+	function showImage(index) {
+		if (index >= 0 && index < imageArray.length) {
+			currentImageIndex = index;
+			modalImage.src = imageArray[index].src;
+			modalImage.alt = imageArray[index].alt;
+			modalLanguageLabel.textContent = imageArray[index].language;
+		}
+	}
+
+	function nextImage() {
+		showImage((currentImageIndex + 1) % imageArray.length);
+	}
+
+	function prevImage() {
+		showImage((currentImageIndex - 1 + imageArray.length) % imageArray.length);
+	}
+
+	galleryImages.forEach((img, index) => {
+		img.addEventListener('click', function() {
+			currentImageIndex = index;
+			showImage(index);
+			modal.classList.add('active');
+		});
+	});
+
+	leftArrow.addEventListener('click', prevImage);
+	rightArrow.addEventListener('click', nextImage);
+
+	modalClose.addEventListener('click', function() {
+		modal.classList.remove('active');
+	});
+
+	modal.addEventListener('click', function(event) {
+		if (event.target === modal) {
+			modal.classList.remove('active');
+		}
+	});
+
+	document.addEventListener('keydown', function(event) {
+		if (event.key === 'Escape') {
+			modal.classList.remove('active');
+		} else if (event.key === 'ArrowLeft') {
+			prevImage();
+		} else if (event.key === 'ArrowRight') {
+			nextImage();
+		}
+	});
+
+	// Screenshot modal functionality
+	const screenshotModal = document.getElementById('screenshotModal');
+	const screenshotImage = document.getElementById('screenshotImage');
+	const screenshotModalClose = document.querySelector('.screenshot-modal-close');
+	const screenshotImages = document.querySelectorAll('.clickable-screenshot');
+
+	screenshotImages.forEach(img => {
+		img.addEventListener('click', function() {
+			screenshotImage.src = this.src;
+			screenshotImage.alt = this.alt || '';
+			screenshotModal.classList.add('active');
+		});
+	});
+
+	screenshotModalClose.addEventListener('click', function() {
+		screenshotModal.classList.remove('active');
+	});
+
+	screenshotModal.addEventListener('click', function(event) {
+		if (event.target === screenshotModal) {
+			screenshotModal.classList.remove('active');
+		}
+	});
+
+	document.addEventListener('keydown', function(event) {
+		if (event.key === 'Escape' && screenshotModal.classList.contains('active')) {
+			screenshotModal.classList.remove('active');
+		}
+	});
+</script>
 
 </body>
 </html>

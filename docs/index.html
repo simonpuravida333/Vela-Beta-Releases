@@ -32,6 +32,8 @@
 		min-height: 100vh;
 		margin: 0;
 		padding: 0 0 220px 0;
+		width: 100%;
+		overflow-x: hidden;
 	}
 
 	body::after {
@@ -47,6 +49,13 @@
 		background-position: bottom left;
 		pointer-events: none;
 		z-index: 1000;
+	}
+
+	@media (max-width: 768px) {
+		body::after {
+			height: 160px;
+			background-size: auto 160px;
+		}
 	}
 
 	.gallery-img {
@@ -89,6 +98,17 @@
 		max-width: 100%;
 		max-height: 90vh;
 		object-fit: contain;
+	}
+
+	@media (max-width: 768px) {
+		.modal-content {
+			max-width: 95vw;
+			max-height: 85vh;
+		}
+
+		.modal img {
+			max-height: 85vh;
+		}
 	}
 
 	.modal-close {
@@ -174,6 +194,17 @@
 		object-fit: contain;
 	}
 
+	@media (max-width: 768px) {
+		.screenshot-modal-content {
+			padding: 15px;
+		}
+
+		.screenshot-modal img {
+			max-width: 95vw;
+			max-height: 85vh;
+		}
+	}
+
 	.screenshot-modal-close {
 		position: absolute;
 		top: 20px;
@@ -230,21 +261,267 @@
 		border: none;
 	}
 
+	@media (max-width: 768px) {
+		body {
+			padding: 0 0 180px 0;
+		}
+
+		.column-element {
+			padding: 0 15px;
+		}
+
+		figure {
+			margin: 0px;
+			margin-bottom: 15px;
+		}
+
+		.modal-arrow {
+			font-size: 36px;
+			padding: 8px 12px;
+		}
+
+		.modal-close {
+			font-size: 32px;
+			top: 15px;
+			right: 20px;
+		}
+
+		.download-buttons {
+			flex-direction: column;
+			gap: 6px;
+		}
+
+		.download-button {
+			width: 100%;
+			text-align: center;
+		}
+
+		h3 {
+			font-size: 32px;
+		}
+
+		h4 {
+			font-size: 22px;
+		}
+	}
+
 	@media (max-width: 600px) {
 		body {
 			font-size: 18px;
+			padding: 0 0 160px 0;
 		}
+
+		.column-element {
+			padding: 0 12px;
+			max-width: 100%;
+		}
+
+		figure {
+			margin: 0px;
+			margin-bottom: 12px;
+		}
+
 		h3 {
-			font-size: 30px;
+			font-size: 28px;
+			line-height: 0.8;
+			margin-top: 30px;
+			margin-bottom: 15px;
 		}
+
 		h4 {
-			font-size: 20px;
+			font-size: 18px;
+			margin-top: 25px;
+			margin-bottom: 0px;
 		}
+
 		.version-tag {
-			font-size: 22px;
+			font-size: 18px;
 		}
+
 		.download-box {
-			padding: 16px 20px;
+			padding: 12px 16px;
+			margin-bottom: 15px;
+		}
+
+		.download-buttons {
+			flex-direction: column;
+			gap: 6px;
+			margin-top: 8px;
+		}
+
+		.download-button {
+			width: 100%;
+			text-align: center;
+			font-size: 16px;
+			padding: 8px 12px;
+		}
+
+		.platform-note {
+			font-size: 14px;
+			margin-top: 8px;
+		}
+
+		.beta-notice {
+			font-size: 16px;
+			padding: 8px 12px;
+		}
+
+		ul {
+			padding-left: 20px;
+			margin: 10px 0;
+		}
+
+		ul li {
+			margin-bottom: 6px;
+		}
+
+		p {
+			margin: 12px 0;
+		}
+
+		.image {
+			border-width: 3px;
+			border-right-width: 12px;
+			border-left-width: 12px;
+		}
+
+		.modal-arrow {
+			font-size: 28px;
+			padding: 6px 10px;
+		}
+
+		.modal-arrow.left {
+			left: 10px;
+		}
+
+		.modal-arrow.right {
+			right: 10px;
+		}
+
+		.modal-close {
+			font-size: 28px;
+			top: 12px;
+			right: 15px;
+		}
+
+		.video-wrapper {
+			margin-bottom: 20px;
+		}
+
+		hr {
+			margin-top: 30px;
+			margin-bottom: 30px;
+			height: 2px;
+		}
+
+		.modal-content {
+			max-width: 95vw;
+			max-height: 85vh;
+		}
+
+		.modal img {
+			max-height: 85vh;
+		}
+
+		.gallery-img {
+			border-radius: 6px;
+		}
+
+		.clickable-screenshot {
+			border-radius: 4px;
+		}
+	}
+
+	@media (max-width: 400px) {
+		body {
+			font-size: 16px;
+			padding: 0 0 140px 0;
+		}
+
+		.column-element {
+			padding: 0 10px;
+		}
+
+		figure {
+			margin-bottom: 10px;
+		}
+
+		figure img {
+			max-width: 100%;
+		}
+
+		h3 {
+			font-size: 24px;
+			margin-top: 25px;
+			margin-bottom: 12px;
+		}
+
+		h4 {
+			font-size: 16px;
+			margin-top: 20px;
+		}
+
+		.version-tag {
+			font-size: 16px;
+			margin-bottom: 3px;
+		}
+
+		.download-box {
+			padding: 10px 12px;
+		}
+
+		.download-button {
+			font-size: 14px;
+			padding: 6px 10px;
+		}
+
+		.platform-note {
+			font-size: 12px;
+		}
+
+		.beta-notice {
+			font-size: 14px;
+			padding: 6px 10px;
+		}
+
+		.modal-arrow {
+			font-size: 22px;
+			padding: 5px 8px;
+		}
+
+		.modal-close {
+			font-size: 24px;
+			top: 10px;
+			right: 12px;
+		}
+
+		ul {
+			padding-left: 18px;
+		}
+
+		ul li {
+			margin-bottom: 4px;
+		}
+
+		p {
+			margin: 10px 0;
+			word-wrap: break-word;
+			overflow-wrap: break-word;
+		}
+
+		a {
+			word-break: break-word;
+		}
+
+		.image {
+			border-width: 2px;
+			border-right-width: 8px;
+			border-left-width: 8px;
+		}
+
+		body::after {
+			height: 140px;
+			background-size: auto 140px;
 		}
 	}
 
@@ -322,6 +599,30 @@
 		color: white;
 	}
 
+	/* Gallery Grid Responsive */
+	@media (max-width: 768px) {
+		.gallery-grid {
+			grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
+			gap: 12px !important;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.gallery-grid {
+			grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)) !important;
+			gap: 10px !important;
+			margin: 16px 0 !important;
+		}
+	}
+
+	@media (max-width: 400px) {
+		.gallery-grid {
+			grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)) !important;
+			gap: 8px !important;
+			margin: 12px 0 !important;
+		}
+	}
+
 	.platform-note {
 		font-size: 17px;
 		color: rgba(255, 255, 255, 0.6);
@@ -339,6 +640,63 @@
 		margin-bottom: 20px;
 		font-size: 19px;
 		color: rgba(255, 255, 220, 0.9);
+	}
+
+	/* Touch-friendly adjustments */
+	@media (hover: none) and (pointer: coarse) {
+		.gallery-img,
+		.clickable-screenshot {
+			transition: none;
+		}
+
+		.gallery-img:active,
+		.clickable-screenshot:active {
+			opacity: 0.8;
+		}
+	}
+
+	/* Hero section responsiveness */
+	@media (max-width: 768px) {
+		figure[style*="margin-top: 60px"] {
+			margin-top: 40px !important;
+		}
+
+		figure img[style*="max-width: 600px"] {
+			max-width: 100% !important;
+		}
+
+		figure img[style*="width: 300px"] {
+			width: 240px !important;
+			max-width: 100% !important;
+		}
+	}
+
+	@media (max-width: 600px) {
+		figure[style*="margin-top: 60px"] {
+			margin-top: 30px !important;
+		}
+
+		figure img[style*="width: 300px"] {
+			width: 200px !important;
+		}
+
+		p[style*="font-size: 28px"] {
+			font-size: 20px !important;
+		}
+	}
+
+	@media (max-width: 400px) {
+		figure[style*="margin-top: 60px"] {
+			margin-top: 20px !important;
+		}
+
+		figure img[style*="width: 300px"] {
+			width: 160px !important;
+		}
+
+		p[style*="font-size: 28px"] {
+			font-size: 16px !important;
+		}
 	}
 </style>
 
@@ -404,7 +762,7 @@
 			<li>New Asian scripts support with IME interaction and word recognition: Japanese, Simplified Chinese, Traditional Chinese (Taiwanese), Cantonese (Hong Kong), Korean, Thai:</li>
 		</ul>
 
-		<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin: 24px 0;">
+		<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin: 24px 0;" class="gallery-grid">
 			<img class="gallery-img" src="images/JP-cropped.png" alt="Japanese script rendering" data-language="Japanese" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
 			<img class="gallery-img" src="images/SC-cropped.png" alt="Simplified Chinese script rendering" data-language="Simplified Chinese" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
 			<img class="gallery-img" src="images/TC-cropped.png" alt="Traditional Chinese script rendering" data-language="Traditional Chinese (Taiwanese)" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">

@@ -68,6 +68,16 @@
 		box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important;
 	}
 
+	.gallery-img-2 {
+		cursor: pointer;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.gallery-img-2:hover {
+		transform: scale(1.05);
+		box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important;
+	}
+
 	.modal {
 		display: none;
 		position: fixed;
@@ -109,6 +119,17 @@
 		.modal img {
 			max-height: 85vh;
 		}
+
+		.modal-arrow {
+			font-size: 70px;
+			padding: 8px 12px;
+		}
+
+		.modal-close {
+			font-size: 60px;
+			top: 15px;
+			right: 20px;
+		}
 	}
 
 	.modal-close {
@@ -116,10 +137,11 @@
 		top: 20px;
 		right: 40px;
 		color: white;
-		font-size: 40px;
+		font-size: 80px;
 		font-weight: bold;
 		cursor: pointer;
 		z-index: 2001;
+		line-height: 1;
 	}
 
 	.modal-close:hover {
@@ -131,7 +153,7 @@
 		top: 50%;
 		transform: translateY(-50%);
 		color: white;
-		font-size: 50px;
+		font-size: 100px;
 		font-weight: bold;
 		cursor: pointer;
 		padding: 10px 20px;
@@ -203,6 +225,12 @@
 			max-width: 95vw;
 			max-height: 85vh;
 		}
+
+		.screenshot-modal-close {
+			font-size: 60px;
+			top: 15px;
+			right: 20px;
+		}
 	}
 
 	.screenshot-modal-close {
@@ -210,10 +238,11 @@
 		top: 20px;
 		right: 40px;
 		color: white;
-		font-size: 40px;
+		font-size: 80px;
 		font-weight: bold;
 		cursor: pointer;
 		z-index: 2001;
+		line-height: 1;
 	}
 
 	.screenshot-modal-close:hover {
@@ -399,7 +428,7 @@
 		}
 
 		.modal-close {
-			font-size: 28px;
+			font-size: 48px;
 			top: 12px;
 			right: 15px;
 		}
@@ -490,7 +519,7 @@
 		}
 
 		.modal-close {
-			font-size: 24px;
+			font-size: 40px;
 			top: 10px;
 			right: 12px;
 		}
@@ -757,12 +786,11 @@
 		<!--<p class="platform-note">Beta 2 | May 16th 2026</p>-->
 		<ul>
 			<li>New summer theme.</li>
-			<li>Better and more snappy interactions.</li>
-			<li>Many graphics, runtime and stability improvements.</li>
-			<li>New Asian scripts support with IME interaction and word recognition: Japanese, Simplified Chinese, Traditional Chinese (Taiwanese), Cantonese (Hong Kong), Korean, Thai:</li>
+			<li>New features and improve stability.</li>
+			<li>New Asian scripts support: IME input and word recognition.</li>
 		</ul>
 
-		<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin: 24px 0;" class="gallery-grid">
+		<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin: 24px 0;" class="gallery-grid-2">
 			<img class="gallery-img" src="images/JP-cropped.png" alt="Japanese script rendering" data-language="Japanese" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
 			<img class="gallery-img" src="images/SC-cropped.png" alt="Simplified Chinese script rendering" data-language="Simplified Chinese" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
 			<img class="gallery-img" src="images/TC-cropped.png" alt="Traditional Chinese script rendering" data-language="Traditional Chinese (Taiwanese)" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
@@ -809,6 +837,13 @@
 		<li>You are interested in where Vela is meant to go?</li>
 		<li>Get in touch to see pitches about Vela's future: <span style="color: rgb(255, 193, 224);">velacreativity@gmail.com</li>
 	</ul>
+
+	<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin: 24px 0;" class="gallery-grid-2">
+		<img class="gallery-img-2" src="images/Pitch Glimpse 1.png" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+		<img class="gallery-img-2" src="images/Pitch Glimpse 2.png" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+		<img class="gallery-img-2" src="images/Pitch Glimpse 3.png" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+	</div>
+
 	<hr>
 
 	<p style="font-size: 16px; color: rgba(255,255,255,0.5); text-align: center; margin-top: 10px;">
@@ -830,6 +865,15 @@
 	</div>
 </div>
 
+<div id="imageModal2" class="modal">
+	<div class="modal-content">
+		<span class="modal-close">&times;</span>
+		<span class="modal-arrow left">&lt;</span>
+		<img id="modalImage2" src="" alt="">
+		<span class="modal-arrow right">&gt;</span>
+	</div>
+</div>
+
 <div id="screenshotModal" class="screenshot-modal">
 	<div class="screenshot-modal-content">
 		<span class="screenshot-modal-close">&times;</span>
@@ -838,13 +882,14 @@
 </div>
 
 <script>
+	// First gallery (IME/Script rendering)
 	const modal = document.getElementById('imageModal');
 	const modalImage = document.getElementById('modalImage');
 	const modalLanguageLabel = document.getElementById('modalLanguageLabel');
-	const modalClose = document.querySelector('.modal-close');
+	const modalClose = document.querySelector('#imageModal .modal-close');
 	const galleryImages = document.querySelectorAll('.gallery-img');
-	const leftArrow = document.querySelector('.modal-arrow.left');
-	const rightArrow = document.querySelector('.modal-arrow.right');
+	const leftArrow = document.querySelector('#imageModal .modal-arrow.left');
+	const rightArrow = document.querySelector('#imageModal .modal-arrow.right');
 	
 	let currentImageIndex = 0;
 	const imageArray = Array.from(galleryImages).map(img => ({
@@ -881,6 +926,19 @@
 	leftArrow.addEventListener('click', prevImage);
 	rightArrow.addEventListener('click', nextImage);
 
+	// Click on left or right half of image to navigate
+	modalImage.addEventListener('click', function(event) {
+		const rect = modalImage.getBoundingClientRect();
+		const clickX = event.clientX - rect.left;
+		const midpoint = rect.width / 2;
+		
+		if (clickX < midpoint) {
+			prevImage();
+		} else {
+			nextImage();
+		}
+	});
+
 	modalClose.addEventListener('click', function() {
 		modal.classList.remove('active');
 	});
@@ -892,12 +950,90 @@
 	});
 
 	document.addEventListener('keydown', function(event) {
-		if (event.key === 'Escape') {
-			modal.classList.remove('active');
-		} else if (event.key === 'ArrowLeft') {
-			prevImage();
-		} else if (event.key === 'ArrowRight') {
-			nextImage();
+		if (modal.classList.contains('active')) {
+			if (event.key === 'Escape') {
+				modal.classList.remove('active');
+			} else if (event.key === 'ArrowLeft') {
+				prevImage();
+			} else if (event.key === 'ArrowRight') {
+				nextImage();
+			}
+		}
+	});
+
+	// Second gallery (Pitch Glimpse)
+	const modal2 = document.getElementById('imageModal2');
+	const modalImage2 = document.getElementById('modalImage2');
+	const modalClose2 = document.querySelector('#imageModal2 .modal-close');
+	const galleryImages2 = document.querySelectorAll('.gallery-img-2');
+	const leftArrow2 = document.querySelector('#imageModal2 .modal-arrow.left');
+	const rightArrow2 = document.querySelector('#imageModal2 .modal-arrow.right');
+	
+	let currentImageIndex2 = 0;
+	const imageArray2 = Array.from(galleryImages2).map(img => ({
+		src: img.src,
+		alt: img.alt
+	}));
+
+	function showImage2(index) {
+		if (index >= 0 && index < imageArray2.length) {
+			currentImageIndex2 = index;
+			modalImage2.src = imageArray2[index].src;
+			modalImage2.alt = imageArray2[index].alt;
+		}
+	}
+
+	function nextImage2() {
+		showImage2((currentImageIndex2 + 1) % imageArray2.length);
+	}
+
+	function prevImage2() {
+		showImage2((currentImageIndex2 - 1 + imageArray2.length) % imageArray2.length);
+	}
+
+	galleryImages2.forEach((img, index) => {
+		img.addEventListener('click', function() {
+			currentImageIndex2 = index;
+			showImage2(index);
+			modal2.classList.add('active');
+		});
+	});
+
+	leftArrow2.addEventListener('click', prevImage2);
+	rightArrow2.addEventListener('click', nextImage2);
+
+	// Click on left or right half of image to navigate
+	modalImage2.addEventListener('click', function(event) {
+		const rect = modalImage2.getBoundingClientRect();
+		const clickX = event.clientX - rect.left;
+		const midpoint = rect.width / 2;
+		
+		if (clickX < midpoint) {
+			prevImage2();
+		} else {
+			nextImage2();
+		}
+	});
+
+	modalClose2.addEventListener('click', function() {
+		modal2.classList.remove('active');
+	});
+
+	modal2.addEventListener('click', function(event) {
+		if (event.target === modal2) {
+			modal2.classList.remove('active');
+		}
+	});
+
+	document.addEventListener('keydown', function(event) {
+		if (modal2.classList.contains('active')) {
+			if (event.key === 'Escape') {
+				modal2.classList.remove('active');
+			} else if (event.key === 'ArrowLeft') {
+				prevImage2();
+			} else if (event.key === 'ArrowRight') {
+				nextImage2();
+			}
 		}
 	});
 
@@ -920,7 +1056,15 @@
 	});
 
 	screenshotModal.addEventListener('click', function(event) {
-		if (event.target === screenshotModal) {
+		// Close if clicking outside the image bounds
+		const rect = screenshotImage.getBoundingClientRect();
+		const clickX = event.clientX;
+		const clickY = event.clientY;
+		
+		const clickedOnImage = clickX >= rect.left && clickX <= rect.right &&
+		                       clickY >= rect.top && clickY <= rect.bottom;
+		
+		if (!clickedOnImage) {
 			screenshotModal.classList.remove('active');
 		}
 	});
